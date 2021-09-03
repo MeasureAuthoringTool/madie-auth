@@ -1,3 +1,7 @@
+import React from "react";
+import tw from "twin.macro";
+
+const Notice = tw.span`text-red-600`;
 export default function Root(props) {
-  return <section>{props.name} is mounted!</section>;
+  return <Notice>{props.name} is mounted!</Notice>;
 }
