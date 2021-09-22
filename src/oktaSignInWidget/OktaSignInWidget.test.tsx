@@ -5,8 +5,7 @@ import OktaSignInWidget from "./OktaSignInWidget";
 jest.mock("@okta/okta-signin-widget", () => {
   return jest.fn().mockImplementation(() => {
     return {
-      showSignInToGetTokens: () =>
-        new Promise((resolve, reject) => resolve(true)),
+      showSignInToGetTokens: () => new Promise((resolve) => resolve(true)),
       remove: () => {
         return true;
       },
