@@ -29,7 +29,7 @@
     "@babel/runtime": "^7.15.4",
     "@madie/madie-editor": "^0.0.2",
     "@madie/madie-layout": "^0.0.2",
-    "@madie/madie-root": "^0.0.2",
+    "@madie/madie-root": "^0.0.3",
     "@okta/okta-signin-widget": "^5.12.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
