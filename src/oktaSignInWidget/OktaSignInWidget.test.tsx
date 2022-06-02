@@ -30,23 +30,33 @@ describe("okta signin widget component", () => {
     const { getByTestId } = render(<OktaSignInWidget {...compProps} />);
     const termsAndConditionsButton = getByTestId("terms-and-conditions-button");
     expect(termsAndConditionsButton).toBeInTheDocument();
-    expect(getByTestId("terms-and-conditions-dialog-hidden")).toBeInTheDocument();
+    expect(
+      getByTestId("terms-and-conditions-dialog-hidden")
+    ).toBeInTheDocument();
     userEvent.click(termsAndConditionsButton);
-    waitFor(() => expect(getByTestId("terms-and-conditions-dialog-visible")).toBeInTheDocument());
+    waitFor(() =>
+      expect(
+        getByTestId("terms-and-conditions-dialog-visible")
+      ).toBeInTheDocument()
+    );
   });
 
-  it("should close the terms and conditions dialog",() => {
+  it("should close the terms and conditions dialog", () => {
     const compProps = {
       props: { config: {}, onSuccess: () => {}, onError: () => {} },
     };
     const { getByTestId } = render(<OktaSignInWidget {...compProps} />);
     const termsAndConditionsButton = getByTestId("terms-and-conditions-button");
     expect(termsAndConditionsButton).toBeInTheDocument();
-    expect(getByTestId("terms-and-conditions-dialog-hidden")).toBeInTheDocument();
+    expect(
+      getByTestId("terms-and-conditions-dialog-hidden")
+    ).toBeInTheDocument();
     userEvent.click(termsAndConditionsButton);
     waitFor(() => {
       userEvent.click(getByTestId("terms-and-conditions-close-button"));
-      expect(getByTestId("terms-and-conditions-dialog-hidden")).toBeInTheDocument();
-    })
+      expect(
+        getByTestId("terms-and-conditions-dialog-hidden")
+      ).toBeInTheDocument();
+    });
   });
 });
