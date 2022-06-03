@@ -92,5 +92,8 @@
     "twin": {
       "preset": "styled-components"
     }
+  },
+  "overrides": {
+    "dset": "3.1.2"
   }
 }
