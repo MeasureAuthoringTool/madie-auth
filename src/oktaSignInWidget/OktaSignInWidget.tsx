@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "twin.macro";
 import "styled-components/macro";
+// @ts-ignore
 import OktaSignIn from "@okta/okta-signin-widget";
 import TermsAndConditionsDialog from "./TermsAndConditionsDialog";
 import Button from "@mui/material/Button";
