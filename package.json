@@ -32,7 +32,7 @@
     "@madie/madie-root": "^0.0.2",
     "@okta/okta-signin-widget": "^6.1.2",
     "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.4",
+    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.2.0",
     "@types/jest": "^27.4.1",
     "@types/react": "^17.0.40",
