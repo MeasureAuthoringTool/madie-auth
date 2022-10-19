@@ -3,7 +3,7 @@ import "twin.macro";
 import "styled-components/macro";
 import OktaSignIn from "@okta/okta-signin-widget";
 import TermsAndConditionsDialog from "./TermsAndConditionsDialog";
-import Button from "@mui/material/Button";
+import "./OktaSignInWidget.scss";
 
 export default function OktaSignInWidget({ props }) {
   const [termsAndConditionsModalStatus, setTermsAndConditionsModalStatus] =
@@ -46,13 +46,13 @@ export default function OktaSignInWidget({ props }) {
       <div tw="text-center">
         <p tw="text-sm">
           By logging in, you agree to the
-          <Button
-            tw="mx-auto"
+          <button
+            className="term-and-condition-button"
             data-testid="terms-and-conditions-button"
             onClick={openTermsAndConditionsModal}
           >
             Terms & Conditions
-          </Button>
+          </button>
         </p>
       </div>
     </>

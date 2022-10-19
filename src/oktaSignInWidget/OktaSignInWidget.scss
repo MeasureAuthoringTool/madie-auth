@@ -1,0 +1,20 @@
+#okta-sign-in {
+  &.auth-container {
+    .auth-footer {
+      > .link {
+        color: #0073C8
+      }
+    }
+    #help-links-container {
+      .link {
+        color: #0073C8
+      }
+    }
+  }
+}
+
+.term-and-condition-button {
+  color: #0073C8;
+  padding-left: 3px;
+}
+
