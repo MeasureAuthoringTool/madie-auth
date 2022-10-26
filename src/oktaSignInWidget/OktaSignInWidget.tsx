@@ -42,9 +42,7 @@ export default function OktaSignInWidget({ props }) {
         open={termsAndConditionsModalStatus}
         closeTermsAndConditionsModal={closeTermsAndConditionsModal}
       />
-      <div tw="pt-12">
-        <h1 tw="text-center text-2xl">MADiE Login</h1>
-      </div>
+      <h1 tw="invisible fixed -top-24">MADiE Login</h1>
       <div data-testid="signInWidget" ref={widgetRef} />
       <div tw="text-center">
         <p tw="text-sm">
