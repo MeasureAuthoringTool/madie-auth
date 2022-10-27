@@ -1,4 +1,9 @@
 #okta-sign-in {
+  margin: 3rem auto 0.5rem;
+
+  .okta-sign-in-header {
+    display: none;
+  }
   &.auth-container {
     .auth-footer {
       > .link {

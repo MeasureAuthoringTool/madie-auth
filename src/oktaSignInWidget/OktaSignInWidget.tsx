@@ -17,7 +17,7 @@ export default function OktaSignInWidget({ props }) {
     setTermsAndConditionsModalStatus(false);
   };
 
-  const widgetRef = useRef();
+  const widgetRef = useRef<OktaSignIn>();
 
   useEffect(() => {
     const config = {
@@ -42,6 +42,7 @@ export default function OktaSignInWidget({ props }) {
         open={termsAndConditionsModalStatus}
         closeTermsAndConditionsModal={closeTermsAndConditionsModal}
       />
+      <h1 tw="invisible fixed -top-24">MADiE Login</h1>
       <div data-testid="signInWidget" ref={widgetRef} />
       <div tw="text-center">
         <p tw="text-sm">
