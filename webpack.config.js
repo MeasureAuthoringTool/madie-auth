@@ -66,20 +66,6 @@ module.exports = (webpackConfigEnv, argv) => {
           ),
           publicPath: "/",
         },
-        {
-          directory: path.join(
-            __dirname,
-            "node_modules/@madie/madie-editor/dist/"
-          ),
-          publicPath: "/madie-editor",
-        },
-        {
-          directory: path.join(
-            __dirname,
-            "node_modules/@madie/madie-layout/dist/"
-          ),
-          publicPath: "/madie-layout",
-        },
       ],
     },
     plugins: [
