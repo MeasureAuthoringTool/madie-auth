@@ -37,6 +37,7 @@
     "@types/systemjs": "^6.1.1",
     "@types/testing-library__jest-dom": "^5.14.3",
     "@types/webpack-env": "^1.16.3",
+    "@types/ws": "^8.5.12",
     "autoprefixer": "^10.4.2",
     "babel-jest": "^27.5.1",
     "concurrently": "^7.1.0",
@@ -59,7 +60,7 @@
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "ts-config-single-spa": "^3.0.0",
-    "typescript": "^4.6.2",
+    "typescript": "^5.5.4",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
     "webpack-config-single-spa-react": "^4.0.3",
@@ -73,7 +74,7 @@
     "@emotion/styled": "^11.8.1",
     "@madie/madie-root": "^0.0.2",
     "@mui/material": "^5.8.2",
-    "@okta/okta-signin-widget": "^6.1.2",
+    "@okta/okta-signin-widget": "^6.3.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^18.1.0",
@@ -81,7 +82,7 @@
     "single-spa-react": "^4.6.1",
     "styled-components": "^5.3.3",
     "tailwindcss": "^3.0.23",
-    "twin.macro": "^3.0.0-rc.2"
+    "twin.macro": "^3.0.0"
   },
   "types": "dist/madie-madie-auth.d.ts",
   "browserslist": [
