@@ -74,7 +74,7 @@
     "@emotion/styled": "^11.8.1",
     "@madie/madie-root": "^0.0.2",
     "@mui/material": "^5.8.2",
-    "@okta/okta-signin-widget": "^6.3.3",
+    "@okta/okta-signin-widget": "^7.24.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^18.1.0",
