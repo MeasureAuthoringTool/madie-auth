@@ -28,7 +28,7 @@ export default function OktaSignInWidget({ props }) {
     widget
       .showSignInToGetTokens({
         el: widgetRef.current,
-        scopes: ["openid", "profile"],
+        scopes: ["openid", "profile", "email"],
       })
       .then(props.onSuccess)
       .catch(props.onError);
