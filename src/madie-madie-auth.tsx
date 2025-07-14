@@ -1,17 +1,14 @@
 import React, { FC } from "react";
-import ReactDOM from "react-dom";
+import ReactDOMClient from "react-dom/client";
 import singleSpaReact from "single-spa-react";
 import OktaSignInWidget from "./oktaSignInWidget/OktaSignInWidget";
 import Root from "./root.component";
 
 const lifecycles = singleSpaReact({
   React,
-  ReactDOM,
+  ReactDOMClient,
   rootComponent: Root,
-  errorBoundary(err, info, props) {
-    // Customize the root error boundary for your microfrontend here.
-    return null;
-  },
+  renderType: "createRoot",
 });
 export const LoginWidget: FC<{ props }> = OktaSignInWidget;
 export const { bootstrap, mount, unmount } = lifecycles;

@@ -1,9 +1,14 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { mergeWithRules } = require("webpack-merge");
-const singleSpaDefaults = require("webpack-config-single-spa-react-ts");
-const path = require("path");
+import singleSpaDefaults from "webpack-config-single-spa-ts";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import NodePolyfillPlugin from "node-polyfill-webpack-plugin"
+import path from "path";
+import { fileURLToPath } from 'url';
+import { mergeWithRules } from 'webpack-merge';
 
-module.exports = (webpackConfigEnv, argv) => {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
     orgName: "madie",
     projectName: "madie-auth",
@@ -12,19 +17,40 @@ module.exports = (webpackConfigEnv, argv) => {
     disableHtmlGeneration: true,
   });
 
-  // We need to override the css loading rule from the parent configuration
-  // so that we can add postcss-loader to the chain
-  const newCssRule = {
+
+  const polyfillConfig = {
+    resolve: {
+      alias: {
+        'node-fetch': false, // blocks direct usage
+        'buffer': path.resolve(__dirname, 'node_modules/buffer/'), // 💥 FIX
+      },
+      fallback: {
+        "fs": false,
+        "tls": false,
+        "net": false,
+        "path": false,
+        "zlib": false,
+        "http": false,
+        "https": false,
+        "stream": false,
+        "crypto": false,
+        "crypto-browserify": path.resolve('crypto-browserify'),
+      },
+    },
+    plugins: [
+      new NodePolyfillPlugin()
+    ],
+  };
+
+
+  const customOverrides = {
     module: {
       rules: [
+        // babelLoaderRule,
         {
           test: /\.css$/i,
           include: [/node_modules/, /src/],
-          use: [
-            "style-loader",
-            "css-loader", // uses modules: true, which I think we want. Parent does not
-            "postcss-loader",
-          ],
+          use: ["style-loader", "css-loader", "postcss-loader"],
         },
         {
           test: /\.scss$/,
@@ -32,22 +58,16 @@ module.exports = (webpackConfigEnv, argv) => {
             extensions: [".scss", ".sass"],
           },
           use: [
-            {
-              loader: "style-loader",
-            },
+            "style-loader",
             {
               loader: "css-loader",
               options: { sourceMap: true, importLoaders: 2 },
             },
             {
               loader: "postcss-loader",
-              options: {
-                sourceMap: true,
-              },
+              options: { sourceMap: true },
             },
-            {
-              loader: "sass-loader",
-            },
+            "sass-loader",
           ],
           exclude: /node_modules/,
         },
@@ -60,10 +80,7 @@ module.exports = (webpackConfigEnv, argv) => {
           publicPath: "/importmap",
         },
         {
-          directory: path.join(
-            __dirname,
-            "node_modules/@madie/madie-root/dist/"
-          ),
+          directory: path.join(__dirname, "node_modules/@madie/madie-root/dist/"),
           publicPath: "/",
         },
       ],
@@ -78,6 +95,29 @@ module.exports = (webpackConfigEnv, argv) => {
     ],
   };
 
+  const externalsConfig = {
+    target: "es2022",
+    output: {
+      filename: "madie-madie-auth.js",
+      module: true,
+      library: {
+        type: "module"
+      }
+    },
+    experiments: {
+      outputModule: true
+    },
+    externalsType: "module",
+    externals: {
+      react: "react",
+      "react-dom": "react-dom",
+      "react-dom/client": "react-dom/client", 
+      'react/jsx-runtime': 'react/jsx-runtime',
+      'react/jsx-dev-runtime': 'react/jsx-dev-runtime',
+      "@madie/madie-util": "@madie/madie-util",
+    },
+  }
+
   return mergeWithRules({
     module: {
       rules: {
@@ -86,5 +126,5 @@ module.exports = (webpackConfigEnv, argv) => {
       },
     },
     plugins: "append",
-  })(defaultConfig, newCssRule);
+  })(defaultConfig, customOverrides, externalsConfig, polyfillConfig);
 };

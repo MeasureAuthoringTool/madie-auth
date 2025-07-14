@@ -1,6 +1,9 @@
 {
   "extends": "ts-config-single-spa",
   "compilerOptions": {
+    "target": "ES2017",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "declaration": true,
     "declarationDir": "dist",
     "declarationMap": true,
