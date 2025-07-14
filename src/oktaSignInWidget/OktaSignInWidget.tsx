@@ -17,7 +17,7 @@ export default function OktaSignInWidget({ props }) {
     setTermsAndConditionsModalStatus(false);
   };
 
-  const widgetRef = useRef();
+  const widgetRef = useRef(null);
 
   useEffect(() => {
     const config = {
