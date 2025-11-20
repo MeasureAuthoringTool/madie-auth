@@ -26,7 +26,6 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@babel/runtime": "^7.17.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^14.2.0",
@@ -61,12 +60,12 @@
     "sass-loader": "^12.6.0",
     "ts-config-single-spa": "^3.0.0",
     "typescript": "^5.5.4",
-    "webpack": "^5.70.0",
-    "webpack-cli": "^4.9.2",
+    "webpack": "^5.100.0",
+    "webpack-cli": "^6.0.1",
     "webpack-config-single-spa-react": "^4.0.3",
     "webpack-config-single-spa-react-ts": "^4.0.3",
     "webpack-config-single-spa-ts": "^4.1.2",
-    "webpack-dev-server": "^4.7.4",
+    "webpack-dev-server": "^5.2.2",
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
@@ -74,15 +73,15 @@
     "@emotion/styled": "^11.8.1",
     "@madie/madie-root": "^0.0.2",
     "@mui/material": "^5.8.2",
-    "@okta/okta-signin-widget": "^7.25.0",
+    "@okta/okta-signin-widget": "^7.28.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^18.1.0",
     "single-spa": "^5.9.3",
     "single-spa-react": "^4.6.1",
     "styled-components": "^5.3.3",
-    "tailwindcss": "^3.0.23",
-    "twin.macro": "^3.0.0"
+    "tailwindcss": "^3.4.10",
+    "twin.macro": "^3.4.0"
   },
   "types": "dist/madie-madie-auth.d.ts",
   "browserslist": [
@@ -95,6 +94,7 @@
     }
   },
   "overrides": {
-    "dset": "3.1.2"
+    "dset": "3.1.2",
+    "@babel/runtime": "^7.17.2"
   }
 }
