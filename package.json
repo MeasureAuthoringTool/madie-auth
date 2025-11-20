@@ -81,8 +81,8 @@
     "single-spa": "^5.9.3",
     "single-spa-react": "^4.6.1",
     "styled-components": "^5.3.3",
-    "tailwindcss": "^3.0.23",
-    "twin.macro": "^3.0.0"
+    "tailwindcss": "^3.4.10",
+    "twin.macro": "^3.4.0"
   },
   "types": "dist/madie-madie-auth.d.ts",
   "browserslist": [
