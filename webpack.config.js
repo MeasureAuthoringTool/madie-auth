@@ -12,6 +12,16 @@ module.exports = (webpackConfigEnv, argv) => {
     disableHtmlGeneration: true,
   });
 
+  // Shared singleton libraries — loaded once via import map
+  const externalsConfig = {
+    externals: [
+      "@emotion/react",
+      "@emotion/styled",
+      "react-is",
+      "styled-components",
+    ],
+  };
+
   // We need to override the css loading rule from the parent configuration
   // so that we can add postcss-loader to the chain
   const newCssRule = {
@@ -86,5 +96,5 @@ module.exports = (webpackConfigEnv, argv) => {
       },
     },
     plugins: "append",
-  })(defaultConfig, newCssRule);
+  })(externalsConfig, defaultConfig, newCssRule);
 };
