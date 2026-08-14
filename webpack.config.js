@@ -1,7 +1,5 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { mergeWithRules } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-react-ts");
-const path = require("path");
 
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
@@ -63,29 +61,6 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       ],
     },
-    devServer: {
-      static: [
-        {
-          directory: path.join(__dirname, "local-dev-env"),
-          publicPath: "/importmap",
-        },
-        {
-          directory: path.join(
-            __dirname,
-            "node_modules/@madie/madie-root/dist/"
-          ),
-          publicPath: "/",
-        },
-      ],
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: path.join(
-          __dirname,
-          "node_modules/@madie/madie-root/dist/index.html"
-        ),
-      }),
-    ],
   };
 
   return mergeWithRules({
