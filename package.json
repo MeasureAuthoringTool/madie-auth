@@ -70,7 +70,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.0",
+    "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.8.2",
     "@okta/okta-signin-widget": "^7.43.1",
