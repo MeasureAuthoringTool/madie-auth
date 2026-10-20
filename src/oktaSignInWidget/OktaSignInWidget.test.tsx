@@ -1,5 +1,5 @@
 import React from "react";
-import { render, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import OktaSignInWidget from "./OktaSignInWidget";
 import userEvent from "@testing-library/user-event";
 
@@ -60,7 +60,7 @@ describe("okta signin widget component", () => {
       getByTestId("terms-and-conditions-dialog-hidden")
     ).toBeInTheDocument();
     await user.click(termsAndConditionsButton);
-    await user.click(getByTestId("terms-and-conditions-close-button"));
+    await user.click(screen.getByRole("button", { name: "Close" }));
     await waitFor(() => {
       expect(
         getByTestId("terms-and-conditions-dialog-hidden")
