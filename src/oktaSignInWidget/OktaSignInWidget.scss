@@ -22,3 +22,18 @@
   color: #0073c8;
   padding-left: 3px;
 }
+
+.auth-login-heading {
+  visibility: hidden;
+  position: fixed;
+  top: -6rem;
+}
+
+.auth-login-terms {
+  text-align: center;
+
+  > p {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}

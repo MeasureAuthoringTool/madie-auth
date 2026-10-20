@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import "twin.macro";
-import "styled-components/macro";
 import OktaSignIn from "@okta/okta-signin-widget";
 import TermsAndConditionsDialog from "./TermsAndConditionsDialog";
 import "./OktaSignInWidget.scss";
@@ -41,10 +39,10 @@ export default function OktaSignInWidget({ props }) {
         open={termsAndConditionsModalStatus}
         closeTermsAndConditionsModal={closeTermsAndConditionsModal}
       />
-      <h1 tw="invisible fixed -top-24">MADiE Login</h1>
+      <h1 className="auth-login-heading">MADiE Login</h1>
       <div data-testid="signInWidget" ref={widgetRef} />
-      <div tw="text-center">
-        <p tw="text-sm">
+      <div className="auth-login-terms">
+        <p>
           By logging in, you agree to the
           <button
             className="term-and-condition-button"

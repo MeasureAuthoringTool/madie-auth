@@ -5,14 +5,15 @@
     "dist/**/*"
   ],
   "scripts": {
-    "start": "webpack serve --port 8502",
+    "start": "node scripts/dev-server.js",
     "build": "concurrently npm:build:*",
     "build:webpack": "webpack --mode=production",
     "analyze": "webpack --mode=production --env analyze",
     "lint": "eslint src --ext js,ts,tsx",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
-    "test": "cross-env BABEL_ENV=test jest",
+    "test": "cross-env BABEL_ENV=test jest && npm run test:server",
+    "test:server": "node --test scripts/dev-server.test.js",
     "watch-tests": "cross-env BABEL_ENV=test jest --watch",
     "prepare": "husky install",
     "coverage": "cross-env BABEL_ENV=test jest --coverage",
@@ -29,14 +30,11 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^14.2.0",
-    "@types/jest": "^27.4.1",
+    "@types/jest": "^30.0.0",
     "@types/react": "^17.0.40",
     "@types/react-dom": "^17.0.13",
-    "@types/styled-components": "^5.1.24",
     "@types/systemjs": "^6.1.1",
-    "@types/testing-library__jest-dom": "^5.14.3",
     "@types/webpack-env": "^1.16.3",
-    "@types/ws": "^8.5.12",
     "autoprefixer": "^10.4.2",
     "babel-jest": "^30.3.0",
     "concurrently": "^7.1.0",
@@ -45,12 +43,10 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-ts-react-important-stuff": "^3.0.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "html-webpack-plugin": "^5.5.0",
     "husky": "^7.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.3.0",
     "jest-canvas-mock": "^2.5.2",
-    "jest-cli": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
     "postcss": "^8.4.7",
     "postcss-loader": "^6.2.1",
@@ -63,10 +59,7 @@
     "typescript": "^5.5.4",
     "webpack": "^5.100.0",
     "webpack-cli": "^6.0.1",
-    "webpack-config-single-spa-react": "^4.0.3",
-    "webpack-config-single-spa-react-ts": "^4.0.3",
-    "webpack-config-single-spa-ts": "^4.1.2",
-    "webpack-dev-server": "^5.2.2",
+    "webpack-config-single-spa-react-ts": "^8.0.0",
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
@@ -78,23 +71,19 @@
     "react-dom": "^17.0.2",
     "react-is": "^18.1.0",
     "single-spa": "^5.9.3",
-    "single-spa-react": "^4.6.1",
-    "styled-components": "^5.3.7",
-    "tailwindcss": "^3.4.10",
-    "twin.macro": "^3.4.0"
+    "single-spa-react": "^4.6.1"
   },
   "types": "dist/madie-madie-auth.d.ts",
   "browserslist": [
     "defaults",
     "not IE 11"
   ],
-  "babelMacros": {
-    "twin": {
-      "preset": "styled-components"
-    }
-  },
   "overrides": {
     "dset": "3.1.2",
-    "@babel/runtime": "^7.17.2"
+    "@babel/runtime": "^7.17.2",
+    "fork-ts-checker-webpack-plugin": "^9.1.0",
+    "@okta/okta-signin-widget": {
+      "chokidar": "^4.0.3"
+    }
   }
 }
