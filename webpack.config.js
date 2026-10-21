@@ -8,16 +8,12 @@ module.exports = (webpackConfigEnv, argv) => {
     webpackConfigEnv,
     argv,
     disableHtmlGeneration: true,
+    outputSystemJS: true,
   });
 
   // Shared singleton libraries — loaded once via import map
   const externalsConfig = {
-    externals: [
-      "@emotion/react",
-      "@emotion/styled",
-      "react-is",
-      "styled-components",
-    ],
+    externals: ["@emotion/react", "@emotion/styled", "react-is"],
   };
 
   // We need to override the css loading rule from the parent configuration

@@ -1,7 +1,6 @@
 import React from "react";
-import tw from "twin.macro";
+import "./root.component.scss";
 
-const Notice = tw.span`text-red-600`;
 export default function Root(props) {
-  return <Notice>{props.name} is mounted!</Notice>;
+  return <span className="auth-mount-notice">{props.name} is mounted!</span>;
 }
